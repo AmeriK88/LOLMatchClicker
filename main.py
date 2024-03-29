@@ -62,7 +62,7 @@ root.geometry("360x640")  # Set dimensions to mimic a phone screen
 start_button = tk.Button(root, text="Start App", command=lambda: start_app(root), bg="#4CAF50", fg="white", font=("Helvetica", 16))
 start_button.pack(pady=20)
 
-# Add an image (you can replace this with your app logo or icon)
+# Add an image 
 app_image = tk.PhotoImage(file="app_icon.png")
 image_label = tk.Label(root, image=app_image)
 image_label.pack()
