@@ -11,7 +11,7 @@ def click_accept_button(root):
         print("Looking for button...")
         while button_location is None:
             try:
-                # Search for a similar image (with a tolerance of 0.7)
+                # Busca imagines similares con una tolerancia del 0.7
                 button_location = pyautogui.locateOnScreen('accept.png', confidence=0.7)
             except pyautogui.ImageNotFoundException:
                 print("Button not found. Retrying...")
@@ -30,17 +30,16 @@ def click_accept_button(root):
         print(f"An error occurred: {e}")
 
 def start_app(root):
-    # Create a new thread to run the click_accept_button function
-    # Create a new thread to run the click_accept_button function
+    # Crea un nuevo hilo para ejecutar la función click_accept_button function
     t = threading.Thread(target=click_accept_button, args=(root,))
-    t.setDaemon(True)  # Set the thread as a daemon thread
+    t.setDaemon(True)  # Establecer el hilo como un hilo demonio
     t.start()
 
-    # Add a canvas for the spinning circle animation
+    # Añadir un lienzo (canvas) para la animación del círculo giratorio
     waiting_canvas = tk.Canvas(root, width=120, height=150)
     waiting_canvas.pack()
 
-    # Create a spinning circle animation
+    # Crear una animación de círculo giratorio
     def animate_waiting(angle):
         waiting_canvas.delete("all")
         x, y = 60, 60
@@ -53,21 +52,20 @@ def start_app(root):
 
     animate_waiting(0)
 
-# Create a mobile-like window
+# Crear una ventana similar a la de un móvil
 root = tk.Tk()
 root.title("Mobile App Simulator")
 root.geometry("360x640")  # Set dimensions to mimic a phone screen
 
-# Create a button to start the app
+# Crear un botón para iniciar la aplicación
 start_button = tk.Button(root, text="Start App", command=lambda: start_app(root), bg="#4CAF50", fg="white", font=("Helvetica", 16))
 start_button.pack(pady=20)
 
-# Add an image 
+# Añadir una imagen
 app_image = tk.PhotoImage(file="app_icon.png")
 image_label = tk.Label(root, image=app_image)
 image_label.pack()
 
-# Run the Tkinter main loop
 root.mainloop()
 
 
