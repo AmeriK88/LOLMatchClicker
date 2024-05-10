@@ -36,6 +36,8 @@ Muestra una animación de un círculo giratorio mientras busca el botón.
 
 
 ## Licencia
-Este proyecto está bajo la Licencia MIT.
+
+Este proyecto está bajo la [Licencia MIT](https://opensource.org/license/mit).
+
 
 PD: Puedes generar un ejecutable con pyinstaller para no tener que abrir tu editor de código cada vez. Recuerda adjuntar la imagen al ejecutar el comando pyinstaller (--add-data)
